@@ -1,0 +1,14 @@
+schema_version: 1
+repository: manufacturing-systems-optimization
+role: umbrella
+axis: application
+area: manufacturing
+status: active
+owner: jorsacademy
+projects:
+  - adaptive-cooling-metal-fabrication-optimization
+  - manufacturing-lead-time-batch-inference-lightgbm-github-actions
+conventions:
+  provenance_records: true
+  reproducibility_expected: true
+  benchmark_assumptions_documented: true

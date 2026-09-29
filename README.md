@@ -5,6 +5,10 @@
 
 This repository is the primary umbrella repository for this Jors Academy research area. Related projects have been consolidated under `projects/` so the methods, implementations, experiments, and case studies can be maintained and explored from one place.
 
+### Native flagship
+
+The repository root contains the actively maintained **manufacturing decision-systems benchmark suite** described below. The entries under `projects/` are consolidated companion projects.
+
 ### Included projects
 
 - [`adaptive-cooling-metal-fabrication-optimization`](projects/adaptive-cooling-metal-fabrication-optimization/)

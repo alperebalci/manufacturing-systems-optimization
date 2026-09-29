@@ -124,3 +124,8 @@ tests/
 Validation CI and industrial performance benchmarking are deliberately separated. CI constructs and validates all 20 fixtures, but it does not attempt to solve every large industrial instance to optimality. Industrial campaigns should additionally record solver/runtime version, hardware, wall-clock time, incumbent objective, optimality gap or fallback rate, memory-relevant dimensions and result artifacts.
 
 This separation prevents a small exact demonstrator from being presented as evidence of industrial scalability while preserving a rigorous correctness oracle for every case.
+
+
+## Additional research project
+
+- [`integrated-production-maintenance-capacity-planning`](projects/integrated-production-maintenance-capacity-planning/) — joint multi-period production, capacity, inventory/backlog, preventive-maintenance, and equipment-age planning.

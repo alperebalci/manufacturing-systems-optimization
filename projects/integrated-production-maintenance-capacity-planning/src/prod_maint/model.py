@@ -76,19 +76,27 @@ def solve_joint(instance:PMInstance)->PMResult:
     # age reset/update with big-M; maintenance at start, then current production adds usage
     M=instance.max_age+float(np.sum(instance.capacity))+1.0
     for t in range(T):
-        prev_const=instance.initial_age if t==0 else 0.0
-        # age = prev_age + production when no maintenance
-        row=np.zeros(n);row[a0+t]=1;row[p0+t]=-1
-        if t>0: row[a0+t-1]-=1
-        row[m0+t]-=M
-        rows.append(row);lows.append(prev_const-M);highs.append(np.inf)
-        row=np.zeros(n);row[a0+t]=1;row[p0+t]=-1
-        if t>0: row[a0+t-1]-=1
-        row[m0+t]+=M
-        rows.append(row);lows.append(-np.inf);highs.append(prev_const+M)
-        # if maintenance=1, age cannot exceed production in that period
+        # no maintenance => age = previous_age + production
+        row=np.zeros(n);row[a0+t]=1;row[p0+t]=-1;row[m0+t]-=M
+        if t>0:
+            row[a0+t-1]-=1
+            rhs=0.0
+        else:
+            rhs=instance.initial_age
+        rows.append(row);lows.append(-np.inf);highs.append(rhs)
+        row=np.zeros(n);row[a0+t]=1;row[p0+t]=-1;row[m0+t]+=M
+        if t>0:
+            row[a0+t-1]-=1
+            rhs=0.0
+        else:
+            rhs=instance.initial_age
+        rows.append(row);lows.append(rhs);highs.append(np.inf)
+
+        # maintenance at the start of period => age = current-period production
         row=np.zeros(n);row[a0+t]=1;row[p0+t]=-1;row[m0+t]+=M
         rows.append(row);lows.append(-np.inf);highs.append(M)
+        row=np.zeros(n);row[a0+t]=1;row[p0+t]=-1;row[m0+t]-=M
+        rows.append(row);lows.append(-M);highs.append(np.inf)
     # inventory-backlog balance
     for t in range(T):
         row=np.zeros(n);row[i0+t]=1;row[b0+t]=-1;row[p0+t]=-1

@@ -8,6 +8,7 @@ owner: jorsacademy
 projects:
   - adaptive-cooling-metal-fabrication-optimization
   - manufacturing-lead-time-batch-inference-lightgbm-github-actions
+  - symbolic-planning-resource-scheduling
 conventions:
   provenance_records: true
   reproducibility_expected: true

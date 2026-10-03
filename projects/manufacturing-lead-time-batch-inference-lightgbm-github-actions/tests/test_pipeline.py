@@ -1,13 +1,22 @@
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 from leadtime_ml.features import TARGET, validate_features
-from leadtime_ml.modeling import build_pipeline, load_pipeline, save_pipeline
+from leadtime_ml.modeling import (
+    build_conformal_predictor,
+    build_pipeline,
+    load_pipeline,
+    load_predictor,
+    predict_with_interval,
+    save_pipeline,
+    save_predictor,
+)
 
 
-def test_pipeline_round_trip(tmp_path: Path):
-    frame = pd.DataFrame(
+def _training_frame() -> pd.DataFrame:
+    base = pd.DataFrame(
         [
             [100, 0.60, 3, 30, 4, 95, 3, "A", "day", "M1", 24.0],
             [220, 0.80, 8, 60, 2, 82, 2, "B", "night", "M3", 49.0],
@@ -31,6 +40,16 @@ def test_pipeline_round_trip(tmp_path: Path):
         ],
     )
 
+    frames = []
+    for offset in np.linspace(-2.0, 2.0, 5):
+        copy = base.copy()
+        copy[TARGET] = copy[TARGET] + offset
+        frames.append(copy)
+    return pd.concat(frames, ignore_index=True)
+
+
+def test_pipeline_round_trip(tmp_path: Path):
+    frame = _training_frame()
     X = validate_features(frame)
     y = frame[TARGET]
 
@@ -44,3 +63,36 @@ def test_pipeline_round_trip(tmp_path: Path):
 
     predictions = loaded.predict(X)
     assert len(predictions) == len(frame)
+
+
+def test_conformal_predictor_round_trip(tmp_path: Path):
+    frame = _training_frame()
+    X = validate_features(frame)
+    y = frame[TARGET]
+
+    X_train = X.iloc[:18]
+    y_train = y.iloc[:18]
+    X_conformalize = X.iloc[18:]
+    y_conformalize = y.iloc[18:]
+
+    pipeline = build_pipeline()
+    pipeline.set_params(model__n_estimators=10)
+    pipeline.fit(X_train, y_train)
+
+    predictor = build_conformal_predictor(
+        pipeline,
+        X_conformalize,
+        y_conformalize,
+        confidence_level=0.90,
+    )
+
+    path = tmp_path / "conformal_model.joblib"
+    save_predictor(predictor, path)
+    loaded = load_predictor(path)
+
+    predictions, lower, upper = predict_with_interval(loaded, X.iloc[:5])
+
+    assert len(predictions) == 5
+    assert np.all(lower <= predictions)
+    assert np.all(predictions <= upper)
+    assert float(loaded.confidence_level) == 0.90

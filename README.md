@@ -41,7 +41,7 @@ Version **0.3** adds a formal **dual-scale fixture standard** to every case:
 
 The small and large fixtures intentionally do **not** imply the same algorithm. Small fixtures can use exact enumeration where that improves verification. Large fixtures declare an industrial solver mode such as sparse MILP, rolling-horizon MILP/CP-SAT, LNS, simulation optimization, batched NLP, or column generation.
 
-## Engineering standard
+## Cross-cutting quality engineering lab\n\nA new statistical quality-engineering module complements the 10 optimization cases without pretending that SPC or DOE is itself an optimization problem.\n\n- `quality_engineering.py` implements two-level full-factorial DOE, factorial effects, best observed setting selection, Individuals-chart SPC, and Cp/Cpk capability analysis.\n- `docs/quality_engineering_spc_doe.md` connects the methods into a measurement -> stability -> DOE -> optimization -> monitoring workflow.\n- `tests/test_quality_engineering.py` verifies effect recovery, setting selection, out-of-control detection, and capability calculations.\n\nThis fills the classical SPC/DOE component of a modern IE curriculum while keeping it computational and testable.\n\n## Engineering standard
 
 Every case now has six evidence layers:
 

@@ -14,3 +14,12 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: pip install -e '.[dev]'
       - run: pytest
+      - name: Export labeled validation-demo evidence
+        run: python -m manufacturing_optimization.experiment_evidence --output artifacts/manufacturing-demo-evidence.json
+      - name: Upload validation evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: manufacturing-demo-evidence
+          path: artifacts/manufacturing-demo-evidence.json
+          if-no-files-found: error
+          retention-days: 14

@@ -96,6 +96,23 @@ pytest
 python -m manufacturing_optimization.benchmarks
 ```
 
+For an auditable **small-demo** JSON artifact with per-case wall time, library versions,
+commit SHA (in GitHub Actions), numeric outputs, audit reporting status, and a stable
+result fingerprint, run:
+
+```bash
+python -m manufacturing_optimization.experiment_evidence \
+  --output artifacts/manufacturing-demo-evidence.json
+```
+
+This is **not** the large-instance industrial benchmark. The case-specific functions
+use their existing built-in demo inputs, and the output does not claim that those
+inputs are identical to `fixtures/manifest.json`. Case 08 currently reports
+simulation metrics but does not expose an independent feasibility audit; the
+export records that audit as `not_reported` rather than a pass.
+CI stores the JSON as a downloadable workflow artifact. See
+[the two-scale benchmark protocol](docs/benchmark_protocol.md).
+
 ## Repository structure
 
 ```text

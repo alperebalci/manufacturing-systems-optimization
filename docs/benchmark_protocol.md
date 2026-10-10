@@ -41,6 +41,28 @@ Each fixture records:
 
 A changed fingerprint means the benchmark data changed and performance numbers should not be compared as if they came from the same fixture.
 
+## Machine-readable demo evidence
+
+The `manufacturing_optimization.experiment_evidence` command executes the existing
+ten **built-in demonstration** benchmark functions and writes an auditable JSON report:
+
+- `evidence_tier: small_demo_validation` and `industrial_scalability_evaluated: false`;
+- per-case objective/KPI output, wall-clock time and explicit audit status;
+- Python, NumPy, SciPy, pandas, platform and GitHub commit (when available);
+- a content-derived `result_fingerprint` that excludes unstable timings and timestamps;
+- an overall `partial_not_reported` audit status if any case does not expose an audit.
+
+This command does **not** run the large industrial fixtures and does not claim
+paired-method comparison or statistical significance. Do not treat its runtime
+numbers as a fair multi-method benchmark. In particular, it does not equate
+built-in demo inputs with the fixture payloads in `fixtures/manifest.json`.
+
+The workflow artifact is useful for **regression and provenance**, not publication
+of industrial performance claims. To make a strong performance claim, record
+the complete instance fingerprint, hardware, solver settings, stopping criteria,
+repetitions, seeds, calibrated uncertainty, confidence intervals, and independent
+feasibility/optimality audit as described above.
+
 ## CI policy
 
 CI constructs and validates all 20 fixtures but does not solve every industrial fixture to optimality. This avoids turning correctness CI into an uncontrolled performance test. Full industrial campaigns should run separately and retain runtime, solver version, machine specification and result artifacts.

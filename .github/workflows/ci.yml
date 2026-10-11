@@ -13,6 +13,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install --upgrade pip
       - run: pip install -e '.[dev]'
+      - name: Lint supplementary case studies
+        run: ruff check src/manufacturing_process_optimization examples tests/test_case0?.py tests/test_case10.py
       - run: pytest
       - name: Export labeled validation-demo evidence
         run: python -m manufacturing_optimization.experiment_evidence --output artifacts/manufacturing-demo-evidence.json

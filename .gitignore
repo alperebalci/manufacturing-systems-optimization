@@ -6,3 +6,6 @@ dist/
 build/
 *.egg-info/
 generated_fixtures/
+.ruff_cache/
+venv/
+outputs/

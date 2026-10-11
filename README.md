@@ -145,3 +145,37 @@ tests/
 Validation CI and industrial performance benchmarking are deliberately separated. CI constructs and validates all 20 fixtures, but it does not attempt to solve every large industrial instance to optimality. Industrial campaigns should additionally record solver/runtime version, hardware, wall-clock time, incumbent objective, optimality gap or fallback rate, memory-relevant dimensions and result artifacts.
 
 This separation prevents a small exact demonstrator from being presented as evidence of industrial scalability while preserving a rigorous correctness oracle for every case.
+
+## Supplementary manufacturing process case studies
+
+This branch also provides a separate, independently implemented ten-case suite under `src/manufacturing_process_optimization/`, alongside the flagship `manufacturing_optimization` benchmark package. The alternative implementations have regression tests under `tests/test_case01.py` through `tests/test_case10.py` and small executable examples under `examples/`.
+
+### Supplementary case inventory
+
+| # | Case | Decision layer | Method | Primary KPI |
+|---:|---|---|---|---|
+| 01 | Integrated production + maintenance | production / maintenance | exact small-instance scheduling | weighted tardiness + setup + maintenance |
+| 02 | Plant milk-run / supermarket feeding | internal logistics | MILP | replenishment + shortage cost |
+| 03 | AGV/AMR production feeding | material handling | MILP | assignment + lateness + battery risk |
+| 04 | Ergonomic worker rotation | workforce / human factors | MILP | staffing + ergonomic exposure |
+| 05 | Quality inspection + rework policy | quality | discounted MDP | long-run quality cost |
+| 06 | CNC process-parameter optimization | machining | nonlinear global optimization | machining + tool + quality + energy cost |
+| 07 | Tooling / die constrained scheduling | tooling + scheduling | exact enumeration | makespan + changeover cost |
+| 08 | CONWIP / Kanban WIP control | production control | discrete-event simulation optimization | throughput / cycle time / WIP |
+| 09 | Energy-aware production scheduling | production + energy | MILP | energy + peak demand + setup + inventory |
+| 10 | Cutting stock with remnant reuse | material yield | pattern-generation MILP | purchased stock + waste |
+
+The cases intentionally use different mathematical structures. They are not ten cosmetic variations of the same scheduling model.
+
+Run `python examples/case01.py` or `python examples/case08.py` after installing `.[dev]`. The original modeling limitations are documented in [`docs/MODELING_NOTES.md`](docs/MODELING_NOTES.md).
+
+### Supplementary modeling principles
+
+1. Decision variables have an operational interpretation.
+2. Constraints are enforced by the model and independently checked where practical.
+3. Every case includes a transparent deterministic or policy baseline.
+4. Stochastic experiments use fixed random seeds and, where useful, common random numbers.
+5. Solver output is not treated as self-validating; feasibility and KPI reconstruction are explicit.
+6. Synthetic assumptions are stated as synthetic instead of being presented as field measurements.
+
+See [`docs/MODELING_NOTES.md`](docs/MODELING_NOTES.md) for the scope and limitations of each case.

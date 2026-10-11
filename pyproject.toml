@@ -7,10 +7,10 @@ name = "manufacturing-process-optimization"
 version = "0.3.0"
 description = "Industrial manufacturing optimization case studies with dual-scale reproducible fixtures"
 requires-python = ">=3.11"
-dependencies = ["numpy>=2.0", "scipy>=1.13", "pandas>=2.2"]
+dependencies = ["numpy>=2.0", "scipy>=1.13", "pandas>=2.2", "matplotlib>=3.8"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -19,3 +19,7 @@ where = ["src"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

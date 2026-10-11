@@ -1,0 +1,38 @@
+JORS ACADEMY NON-COMMERCIAL SOFTWARE LICENSE
+Version 1.0
+
+Copyright (c) 2026 Jors Academy
+
+Permission is granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the "Software"), to use, copy,
+modify, and redistribute the Software solely for non-commercial purposes,
+including personal study, teaching, academic research, and non-commercial
+experimentation, subject to the following conditions:
+
+1. Commercial use is prohibited without prior written permission from the
+   copyright holder.
+
+2. "Commercial use" includes, without limitation:
+   a. use of the Software in a product or service offered for a fee;
+   b. use of the Software to provide paid consulting, engineering, analytics,
+      manufacturing, or software services;
+   c. sale, sublicensing, or paid distribution of the Software or a derivative;
+   d. internal use by a for-profit entity where the Software materially supports
+      revenue-generating production, operations, products, or services.
+
+3. Redistributions must retain this copyright notice, this license text, and
+   all notices that identify the Software as a synthetic/research model.
+
+4. The Software may not be represented as validated industrial control software,
+   certified safety software, or a substitute for process-specific engineering
+   validation.
+
+5. Commercial licensing may be available separately from the copyright holder.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

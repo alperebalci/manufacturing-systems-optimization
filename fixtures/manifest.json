@@ -1,0 +1,22 @@
+[
+  {"case_id":"case01","scale":"validation","seed":101,"dimensions":{"jobs":8,"machines":2},"solver_mode":"exact_milp","fingerprint":"d0032ea6769b836f9215ef21009d457c710bf7e45a31b9f8c24952a73e9a3a27"},
+  {"case_id":"case01","scale":"industrial","seed":1001,"dimensions":{"jobs":500,"machines":20},"solver_mode":"sparse_milp","fingerprint":"ed63fbf5ea1eca0a8dabed1e4696a99cc3687239fdda2f63f8e63a9c3ef9bd31"},
+  {"case_id":"case02","scale":"validation","seed":102,"dimensions":{"stations":3,"periods":6},"solver_mode":"exact_milp","fingerprint":"6d6e0ac6e1f4efe6e27194c349763fe0cea82ca26214ef5980616f6bbe9f2c80"},
+  {"case_id":"case02","scale":"industrial","seed":1002,"dimensions":{"stations":40,"periods":96},"solver_mode":"sparse_milp","fingerprint":"cc22bdf5e05d6d409934c0afc0eb00e17d351fad1ddf41c278254b4d2c213613"},
+  {"case_id":"case03","scale":"validation","seed":103,"dimensions":{"tasks":8,"vehicles":3},"solver_mode":"exact_enumeration","fingerprint":"9931e17e6f1552273bdb8db258f2e7e5fa196d8539d457070499a75a07a10df9"},
+  {"case_id":"case03","scale":"industrial","seed":1003,"dimensions":{"tasks":250,"vehicles":20},"solver_mode":"assignment_milp_plus_dispatch","fingerprint":"cb5d8b4c04e6f289f4e58fc3e8132797b7c35638adb89f2202908cd0f32b82fb"},
+  {"case_id":"case04","scale":"validation","seed":104,"dimensions":{"workers":4,"stations":3,"periods":5},"solver_mode":"exact_milp","fingerprint":"43a612c10c304c2042f7809649a19cbc42c480021bacd711e00f68406f9047a1"},
+  {"case_id":"case04","scale":"industrial","seed":1004,"dimensions":{"workers":120,"stations":36,"periods":8},"solver_mode":"sparse_milp","fingerprint":"448753f0fba901108752461cefffaba042e83c810b0fbc24b8a05534ff8ea713"},
+  {"case_id":"case05","scale":"validation","seed":105,"dimensions":{"states":3,"actions":3},"solver_mode":"value_iteration_plus_exhaustive_oracle","fingerprint":"a5ac7aa0140ca987d66e5e0075a85dda4693727e042706b8a5dbf635278a25a8"},
+  {"case_id":"case05","scale":"industrial","seed":1005,"dimensions":{"states":12,"actions":4},"solver_mode":"value_or_policy_iteration","fingerprint":"f10970fdf2eea96fe58dda7e843e50591a932a8b0ef673acc9a6aaf3a629c5a6"},
+  {"case_id":"case06","scale":"validation","seed":106,"dimensions":{"operations":1},"solver_mode":"global_nlp","fingerprint":"2d38d3f9c4b257285acd149b6c5ad9bbe6c0c1c1132cacc894748d1049ef379f"},
+  {"case_id":"case06","scale":"industrial","seed":1006,"dimensions":{"operations":1000},"solver_mode":"batched_nlp_or_surrogate","fingerprint":"26fb4432bb770cdb8f19b1013b10455af2c3c290b1703c49da0c01fefa18a6d4"},
+  {"case_id":"case07","scale":"validation","seed":107,"dimensions":{"jobs":6,"presses":2,"molds":3},"solver_mode":"exact_assignment_and_permutation","fingerprint":"175d3446330377523508a99c3d06f08cda379d13bcccb9b1f223e042fb06d0dd"},
+  {"case_id":"case07","scale":"industrial","seed":1007,"dimensions":{"jobs":180,"presses":12,"molds":8},"solver_mode":"cp_sat_or_lns","fingerprint":"1741536d30b6ed4ad8e5661a1e3b7a1c411f3715282756da552a65e40b1e6efe"},
+  {"case_id":"case08","scale":"validation","seed":108,"dimensions":{"stations":3,"replications":20},"solver_mode":"discrete_event_simulation","fingerprint":"e67d3dd19b2b7425f83323463337a8caf8ccb30b88ddb7d1e2180fbf173622b7"},
+  {"case_id":"case08","scale":"industrial","seed":1008,"dimensions":{"stations":12,"replications":50},"solver_mode":"simulation_optimization_crn","fingerprint":"304212d688be8e1380575fbf2cfa5102fbf0af9928de4908949129d2ab713e7a"},
+  {"case_id":"case09","scale":"validation","seed":109,"dimensions":{"jobs":5,"periods":16,"machines":1},"solver_mode":"time_indexed_milp","fingerprint":"4489bc2f7711d58344a781c4ef676f3992ce10f9a376edc43b740d6786cecaf0"},
+  {"case_id":"case09","scale":"industrial","seed":1009,"dimensions":{"jobs":120,"periods":168,"machines":4},"solver_mode":"rolling_horizon_milp_or_cp_sat","fingerprint":"279df4fd5a6a409bba7d0184d8adfa5ccb6b8c6a6e5b2a72ddd34379a69e5b41"},
+  {"case_id":"case10","scale":"validation","seed":110,"dimensions":{"item_types":3,"stock_types":3},"solver_mode":"exact_pattern_milp","fingerprint":"1e64175d2e515bf46be97b75c379000cde4269cab9b49cb6956ec7e739660a41"},
+  {"case_id":"case10","scale":"industrial","seed":1010,"dimensions":{"item_types":30,"stock_types":6},"solver_mode":"column_generation_or_restricted_pattern_milp","fingerprint":"5c4879898a26ba487fe6e0cc1f0c3d269694eda220686e7f8457e686ddd3c59a"}
+]

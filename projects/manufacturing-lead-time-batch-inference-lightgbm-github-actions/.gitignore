@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.py[cod]
+.DS_Store
+
+# Keep directory structure but do not commit generated model binaries.
+models/*.joblib
+!models/.gitkeep

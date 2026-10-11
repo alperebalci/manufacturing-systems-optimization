@@ -4,19 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "manufacturing-process-optimization"
-version = "0.1.0"
-description = "Ten Industrial Engineering case studies for manufacturing optimization in Python"
-readme = "README.md"
+version = "0.3.0"
+description = "Industrial manufacturing optimization case studies with dual-scale reproducible fixtures"
 requires-python = ">=3.11"
-dependencies = [
-  "numpy>=1.26",
-  "scipy>=1.13",
-  "pandas>=2.2",
-  "matplotlib>=3.8",
-]
+dependencies = ["numpy>=2.0", "scipy>=1.13", "pandas>=2.2", "matplotlib>=3.8"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

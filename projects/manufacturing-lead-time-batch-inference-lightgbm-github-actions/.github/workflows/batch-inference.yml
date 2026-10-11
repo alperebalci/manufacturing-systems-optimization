@@ -1,0 +1,53 @@
+name: scheduled-batch-inference
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    # 06:15 UTC every Monday. GitHub Actions cron uses UTC.
+    - cron: "15 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: batch-inference
+  cancel-in-progress: false
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      - name: Install
+        run: python -m pip install -e .
+
+      - name: Generate demo inputs
+        run: python generate_demo_data.py
+
+      - name: Train model
+        run: python train.py
+
+      - name: Score incoming orders
+        run: python score.py
+
+      - name: Publish prediction artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lead-time-predictions-${{ github.run_id }}
+          path: |
+            data/predictions/latest_predictions.csv
+            models/metrics.json
+          if-no-files-found: error
+          retention-days: 30

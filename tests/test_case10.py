@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case10_cutting_stock import demo_instance, optimize_cutting_stock
+from manufacturing_process_optimization.case10_cutting_stock import (
+    demo_instance,
+    optimize_cutting_stock,
+)
 
 
 def test_cutting_stock_meets_demand_and_limits_remnants():

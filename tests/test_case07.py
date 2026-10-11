@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case07_tooling_scheduling import demo_instance, optimize_exact
+from manufacturing_process_optimization.case07_tooling_scheduling import (
+    demo_instance,
+    optimize_exact,
+)
 
 
 def test_tooling_schedule_assigns_every_job_once():

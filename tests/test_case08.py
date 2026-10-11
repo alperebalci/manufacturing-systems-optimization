@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case08_conwip import generate_service_scenarios, optimize_conwip
+from manufacturing_process_optimization.case08_conwip import (
+    generate_service_scenarios,
+    optimize_conwip,
+)
 
 
 def test_conwip_policy_search_returns_declared_candidate():

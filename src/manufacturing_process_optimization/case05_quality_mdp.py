@@ -4,7 +4,6 @@ from dataclasses import dataclass
 
 import numpy as np
 
-
 STATES = ("stable", "drifting", "unstable")
 ACTIONS = ("skip", "sample", "full")
 

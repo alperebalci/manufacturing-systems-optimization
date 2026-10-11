@@ -1,4 +1,8 @@
-from manufacturing_process_optimization.case06_cnc_parameters import CNCConfig, baseline_cnc, optimize_cnc
+from manufacturing_process_optimization.case06_cnc_parameters import (
+    CNCConfig,
+    baseline_cnc,
+    optimize_cnc,
+)
 
 
 def test_cnc_solution_is_feasible_and_improves_default_baseline():

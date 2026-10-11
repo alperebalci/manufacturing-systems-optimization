@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import heapq
 from collections import deque
 from dataclasses import dataclass
-import heapq
 
 import numpy as np
 

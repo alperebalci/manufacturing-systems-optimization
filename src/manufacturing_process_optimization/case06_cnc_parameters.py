@@ -59,7 +59,9 @@ def _metrics(x: np.ndarray, cfg: CNCConfig) -> dict[str, float]:
     }
 
 
-def optimize_cnc(cfg: CNCConfig = CNCConfig(), seed: int = 42) -> CNCResult:
+def optimize_cnc(cfg: CNCConfig | None = None, seed: int = 42) -> CNCResult:
+    if cfg is None:
+        cfg = CNCConfig()
     bounds = [(90.0, 280.0), (0.08, 0.38), (0.5, 3.2)]
 
     def objective(x: np.ndarray) -> float:
@@ -99,7 +101,9 @@ def optimize_cnc(cfg: CNCConfig = CNCConfig(), seed: int = 42) -> CNCResult:
     )
 
 
-def baseline_cnc(cfg: CNCConfig = CNCConfig()) -> CNCResult:
+def baseline_cnc(cfg: CNCConfig | None = None) -> CNCResult:
+    if cfg is None:
+        cfg = CNCConfig()
     x = np.array([160.0, 0.16, 1.5])
     m = _metrics(x, cfg)
     return CNCResult(

@@ -113,7 +113,7 @@ def optimize_cutting_stock(
     produced = np.zeros(K, dtype=int)
     new_bars = remnants_used = trim = 0
     for j, p in enumerate(patterns):
-        count = int(round(res.x[j]))
+        count = round(res.x[j])
         if count <= 0:
             continue
         selected.append((p, count))
@@ -124,7 +124,7 @@ def optimize_cutting_stock(
         else:
             remnants_used += count
 
-    excess = tuple(int(round(v)) for v in res.x[P:])
+    excess = tuple(round(v) for v in res.x[P:])
     return CuttingStockResult(
         objective=float(res.fun),
         selected_patterns=tuple(selected),

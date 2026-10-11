@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case09_energy_scheduling import demo_instance, optimize_energy_schedule
+from manufacturing_process_optimization.case09_energy_scheduling import (
+    demo_instance,
+    optimize_energy_schedule,
+)
 
 
 def test_energy_schedule_satisfies_inventory_balance():

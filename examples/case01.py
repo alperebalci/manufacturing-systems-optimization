@@ -1,4 +1,8 @@
-from manufacturing_process_optimization.case01_production_maintenance import baseline_edd, demo_instance, optimize_exact
+from manufacturing_process_optimization.case01_production_maintenance import (
+    baseline_edd,
+    demo_instance,
+    optimize_exact,
+)
 
 jobs, setup, maintenance = demo_instance()
 opt = optimize_exact(jobs, setup, maintenance)

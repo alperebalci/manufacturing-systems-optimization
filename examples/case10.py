@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case10_cutting_stock import demo_instance, optimize_cutting_stock
+from manufacturing_process_optimization.case10_cutting_stock import (
+    demo_instance,
+    optimize_cutting_stock,
+)
 
 lengths, demand = demo_instance()
 result = optimize_cutting_stock(lengths, demand)

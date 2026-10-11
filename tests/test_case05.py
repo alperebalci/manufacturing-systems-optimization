@@ -1,4 +1,10 @@
-from manufacturing_process_optimization.case05_quality_mdp import ACTIONS, STATES, build_default_mdp, evaluate_stationary_policy, value_iteration
+from manufacturing_process_optimization.case05_quality_mdp import (
+    ACTIONS,
+    STATES,
+    build_default_mdp,
+    evaluate_stationary_policy,
+    value_iteration,
+)
 
 
 def test_mdp_policy_and_exact_policy_value_agree():

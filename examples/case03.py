@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case03_agv_assignment import demo_instance, optimize_assignment
+from manufacturing_process_optimization.case03_agv_assignment import (
+    demo_instance,
+    optimize_assignment,
+)
 
 robots, tasks = demo_instance()
 result = optimize_assignment(robots, tasks)

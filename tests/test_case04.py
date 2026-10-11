@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case04_worker_rotation import demo_instance, optimize_rotation
+from manufacturing_process_optimization.case04_worker_rotation import (
+    demo_instance,
+    optimize_rotation,
+)
 
 
 def test_rotation_staffs_every_station_period():

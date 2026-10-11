@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case09_energy_scheduling import demo_instance, optimize_energy_schedule
+from manufacturing_process_optimization.case09_energy_scheduling import (
+    demo_instance,
+    optimize_energy_schedule,
+)
 
 result = optimize_energy_schedule(*demo_instance())
 print("objective:", round(result.objective, 2))

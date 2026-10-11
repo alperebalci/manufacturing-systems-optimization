@@ -1,4 +1,7 @@
-from manufacturing_process_optimization.case03_agv_assignment import demo_instance, optimize_assignment
+from manufacturing_process_optimization.case03_agv_assignment import (
+    demo_instance,
+    optimize_assignment,
+)
 
 
 def test_every_transport_task_is_accounted_for():
